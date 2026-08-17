@@ -1,0 +1,61 @@
+[
+
+		{
+
+			"name":"admin",
+			"alias":["ahelp"],
+			"permission":["admin"],
+			"asset":"adminhelp",
+			"description":"admin help menu"
+		},
+
+        	{
+
+			"name":"methods",
+			"asset":"methods"
+		},
+		{
+
+			"name":"help",
+			"asset":"help"
+		},
+   		{
+
+			"name":"tools",
+			"asset":"tools"
+		},
+   		{
+
+			"name":"pancake",
+			"asset":"pancake"
+		},
+    	{
+
+			"name":"twobit",
+			"permission":["admin"],
+			"asset":"twobit"
+		},
+		{
+
+			"name":"botcount",
+			"permission":["admin"],
+			"asset":"bots"
+		},
+       	{
+
+			"name":"tos",
+			"asset":"tos"
+		},
+   
+
+		{
+			"name":"account",
+			"alias":["acccount","info"],
+
+            "-Comment- Remove this line" : "You do not need to define empty types such as a command with no permissions needed!",
+
+			"asset":"accountinfo",
+			"description":"returns user info"
+		}
+
+]

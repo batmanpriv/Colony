@@ -1,0 +1,62 @@
+{
+
+    "users": [
+        {
+            "enabled": true,
+            "api_key": "paradox",
+            "admin": true,
+            "config": {
+                "max_time": 86400,
+                "power_saving_mode": false,
+                "bypass_blacklists": false
+            },
+            "access": {
+                "use_apis": true,
+                "use_ssh_servers": true
+            }
+        },
+        {
+            "enabled": true,
+            "api_key": "ZjFpXMvr",
+            "admin": false,
+            "config": {
+                "max_time": 86400,
+                "power_saving_mode": false,
+                "bypass_blacklists": false
+            },
+            "access": {
+                "use_apis": true,
+                "use_ssh_servers": true
+            }
+        },
+         {
+            "enabled": true,
+            "api_key": "nyap1377-offline",
+            "admin": false,
+            "config": {
+                "max_time": 86400,
+                "power_saving_mode": false,
+                "bypass_blacklists": false
+            },
+            "access": {
+                "use_apis": true,
+                "use_ssh_servers": true
+            }
+        },
+        {
+            "enabled": true,
+            "api_key": "Moon-7293172827",
+            "admin": false,
+            "config": {
+                "max_time": 86400,
+                "power_saving_mode": false,
+                "bypass_blacklists": false
+            },
+            "access": {
+                "use_apis": true,
+                "use_ssh_servers": true
+            }
+        }
+    ]
+
+}

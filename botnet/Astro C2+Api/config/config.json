@@ -1,0 +1,138 @@
+{
+
+    "webserver": {
+        "port": ":80"
+    },
+
+    "sql": {
+        "host": "localhost:3306",
+        "user": "anton",
+        "password": "Anailuka1!!",
+        "database": "ClientFunnel"
+    },
+
+    "attacking": {
+        "enable_attacks": true,
+        "anti_spam": {
+            "enabled": false,
+            "max_attacks_on_host_in_a_row": 1,
+            "max_attacks_on_host_hourly": 3,
+            "max_attacks_on_host_daily": 10
+        },
+        "apis": {
+            "enabled": true
+        },
+        "ssh_servers": {
+            "enabled": true
+        }
+    },
+    
+    "attack_logging": {
+        "file_logs": {
+            "enabled": true
+        },
+        "discord": {
+            "enabled": true,
+	    "webhook": "https://canary.discord.com/api/webhooks/998025026890649660/Qblogc0DEWyeRQYl2nH4LUKp18Chy-J0kevROmQtgGD2xPm5saYKQwJv7xEoGsOXx5oH",
+            "customization": {
+                "username": "Paradox",
+                "avatar_url": "https://www.researchgate.net/profile/Hanhe-Lin/publication/344400221/figure/fig1/AS:940579932348417@1601263139233/SAN-and-Tarsier-on-the-baboon-image-from-Set-14-The-image-generated-by-SAN-is-visibly.ppm",
+                "embed_image": {
+                    "enabled": false,
+                    "success_image": "https://www.researchgate.net/profile/Hanhe-Lin/publication/344400221/figure/fig1/AS:940579932348417@1601263139233/SAN-and-Tarsier-on-the-baboon-image-from-Set-14-The-image-generated-by-SAN-is-visibly.ppm",
+                    "error_image": "https://www.researchgate.net/profile/Hanhe-Lin/publication/344400221/figure/fig1/AS:940579932348417@1601263139233/SAN-and-Tarsier-on-the-baboon-image-from-Set-14-The-image-generated-by-SAN-is-visibly.ppm"
+                },
+                "embed_thumbnail": {
+                    "enabled": false,
+                    "success_image": "https://myimage.com/",
+                    "error_image": "https://myimage.com/"
+                },
+                "embed_footer": {
+                    "enabled": false,
+                    "success_image": "https://myimage.com/",
+                    "error_image": "https://myimage.com/"
+                },
+                "custom_colors": {
+                    "enabled": true,
+                    "success_color": "0aff1a",
+                    "error_color": "ff270a"
+                }
+            }
+        },
+        "guilded": {
+            "enabled": false,
+	    "webhook": "xxxxxxxx",
+            "customization": {
+                "username": "Reluctant",
+                "avatar_url": "https://myimage.com/",
+                "embed_image": {
+                    "enabled": false,
+                    "success_image": "https://myimage.com/",
+                    "error_image": "https://myimage.com/"
+                },
+                "embed_thumbnail": {
+                    "enabled": false,
+                    "success_image": "https://myimage.com/",
+                    "error_image": "https://myimage.com/"
+                },
+                "embed_footer": {
+                    "enabled": false,
+                    "success_image": "https://myimage.com/",
+                    "error_image": "https://myimage.com/"
+                },
+                "custom_colors": {
+                    "enabled": true,
+                    "success_color": "0aff1a",
+                    "error_color": "ff270a"
+                }
+            }
+        },
+        "telegram": {
+            "enabled": false,
+	      "token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+	      "channel": "-00000000000"
+        }
+    },
+
+    "whitelisting": {
+        "enabled": false,
+        "whitelists": [
+            "92.53.19.98",
+            "5.39.34.46",
+            "45.41.240.72",
+            "2001:41d0:701:1000::20bf",
+            "2001:41d0:a:7e69:11::/80",
+            "213.162.73.241",
+            "141.95.106.60"
+        ]
+    },
+
+    "blacklisted_ips": [
+        "23.227.146.106",
+        "1.1.1.1",
+        "178.237.56.152",
+        "3.3.3.3",
+        "4.4.4.4",
+        "5.5.5.5",
+        "6.6.6.6",
+        "7.7.7.7",
+        "8.8.8.8",
+        "9.9.9.9",
+        "127.0.0.1"
+    ],
+
+    "blacklisted_urls": [
+        ".gov",
+        ".edu",
+        "google.com",
+        "amazon.com"
+    ],
+
+    "blacklisted_isps": {
+        "enabled": false,
+        "isp_api_key": "a41d393b1c594fbb98c5433bc4b78db0",
+        "isps": [
+            "Cloudflare"
+        ]
+    }
+}

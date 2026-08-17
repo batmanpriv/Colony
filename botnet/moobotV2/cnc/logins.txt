@@ -1,0 +1,2 @@
+admin pass -1 3600 30 all 1
+user pass 5000 3600 30 all 0

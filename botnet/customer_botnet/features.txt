@@ -1,0 +1,15 @@
+Selling private $200 source, (ONLY I AM SELLING IT !)
+
+Features:
+	- Good bot killer, kills essentially all mirais, qbots and fbot edits
+	- Good selfrep, nice clean telnet scanner with good combos
+	- Very good methods, no bullshit renamed methods, straight forward useful methods
+	- Good telnet loader, again, no bs, good handler and infector
+	- Clean CNC, no BS ASCII art, just a simple banner with methods display
+	- Anti bot killing functionality to ensure you will stay infected
+	- Customer written ARX cipher based off mirai's original cipher
+	- Domain support for bots to connect to, easily editable with my enc.c file
+
+Extra features:
+	- I give lifetime support if im available, dm me if you have any issue and we will work it out
+	- I can add any selfrep in that you want DM me to purchase.

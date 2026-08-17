@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hinata - Statistics</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.17/tailwind.min.css">
+</head>
+<body class="bg-gray-900">
+<div class="container mx-auto px-6 py-10">
+    <div class="mb-4">
+        <h2 class="text-2xl font-semibold text-gray-200 mb-2">User Table</h2>
+        <div class="overflow-x-auto bg-gray-800 rounded-lg shadow overflow-y-auto relative">
+            <table class="border-collapse table-auto w-full whitespace-no-wrap bg-gray-800 table-striped">
+                <thead>
+                <tr class="text-left">
+                    <th class="py-4 px-6 text-gray-400 uppercase font-medium text-sm">ID</th>
+                    <th class="py-4 px-6 text-gray-400 uppercase font-medium text-sm">Username</th>
+                    <th class="py-4 px-6 text-gray-400 uppercase font-medium text-sm">Duration Limit</th>
+                    <th class="py-4 px-6 text-gray-400 uppercase font-medium text-sm">Cooldown</th>
+                    <th class="py-4 px-6 text-gray-400 uppercase font-medium text-sm">Max Bots</th>
+                    <th class="py-4 px-6 text-gray-400 uppercase font-medium text-sm">Admin</th>
+                    <th class="py-4 px-6 text-gray-400 uppercase font-medium text-sm">Max Attacks</th>
+                    <th class="py-4 px-6 text-gray-400 uppercase font-medium text-sm">Total Attacks</th>
+                    <th class="py-4 px-6 text-gray-400 uppercase font-medium text-sm">Expiry</th>
+                    <th class="py-4 px-6 text-gray-400 uppercase font-medium text-sm">Reseller</th>
+                    <th class="py-4 px-6 text-gray-400 uppercase font-medium text-sm">Created By</th>
+                </tr>
+                </thead>
+                <tbody class="text-gray-400 text-sm font-light">
+                {{range .TableData}}
+                <tr class="border-b border-gray-800 hover:bg-gray-700">
+                    <td class="py-3 px-6 text-left whitespace-no-wrap">{{.ID}}</td>
+                    <td class="py-3 px-6 text-left">{{.Username}}</td>
+                    <td class="py-3 px-6 text-left">{{.DurationLimit}}</td>
+                    <td class="py-3 px-6 text-left">{{.Cooldown}}</td>
+                    <td class="py-3 px-6 text-left">{{.MaxBots}}</td>
+                    <td class="py-3 px-6 text-left">{{.Admin}}</td>
+                    <td class="py-3 px-6 text-left">{{.MaxAttacks}}</td>
+                    <td class="py-3 px-6 text-left">{{.TotalAttacks}}</td>
+                    <td class="py-3 px-6 text-left">{{.Expiry}}</td>
+                    <td class="py-3 px-6 text-left">{{.Reseller}}</td>
+                    <td class="py-3 px-6 text-left">{{.CreatedBy}}</td>
+                </tr>
+                {{end}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <h2 class="text-2xl font-semibold text-gray-200 mb-2">Bot Statistics</h2>
+        <div class="overflow-x-auto bg-gray-800 rounded-lg shadow overflow-y-auto relative">
+            <table class="border-collapse table-auto w-full whitespace-no-wrap bg-gray-800 table-striped">
+                <thead>
+                <tr class="text-left">
+                    <th class="py-4 px-6 text-gray-400 uppercase font-medium text-sm">Bot Type</th>
+                    <th class="py-4 px-6 text-gray-400 uppercase font-medium text-sm">Count</th>
+                    <th class="py-4 px-6 text-gray-400 uppercase font-medium text-sm">Change</th>
+                </tr>
+                </thead>
+                <tbody class="text-gray-400 text-sm font-light">
+                {{range .ChartData}}
+                <tr class="border-b border-gray-800 hover:bg-gray-700">
+                    <td class="py-3 px-6 text-left whitespace-no-wrap">{{.BotType}}</td>
+                    <td class="py-3 px-6 text-left">{{.Count}}</td>
+                    <td class="py-3 px-6 text-left">{{.Change}}</td>
+                </tr>
+                {{end}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="mb-4">
+        <h2 class="text-2xl font-semibold text-gray-200 mb-2">Ongoing Attacks</h2>
+        <div class="overflow-x-auto bg-gray-800 rounded-lg shadow overflow-y-auto relative">
+            <table class="border-collapse table-auto w-full whitespace-no-wrap bg-gray-800 table-striped">
+                <thead>
+                <tr class="text-left">
+                    <th class="py-4 px-6 text-gray-400 uppercase font-medium text-sm">Username</th>
+                    <th class="py-4 px-6 text-gray-400 uppercase font-medium text-sm">Host(s)</th>
+                    <th class="py-4 px-6 text-gray-400 uppercase font-medium text-sm">Port</th>
+                    <th class="py-4 px-6 text-gray-400 uppercase font-medium text-sm">Duration</th>
+                    <th class="py-4 px-6 text-gray-400 uppercase font-medium text-sm">Flood Type</th>
+                    <th class="py-4 px-6 text-gray-400 uppercase font-medium text-sm">Time</th>
+                </tr>
+                </thead>
+                <tbody class="text-gray-400 text-sm font-light">
+                {{range .Attacks}}
+                <tr class="border-b border-gray-800 hover:bg-gray-700">
+                    <td class="py-3 px-6 text-left whitespace-no-wrap">{{.Username}}</td>
+                    <td class="py-3 px-6 text-left">{{.Host}}</td>
+                    <td class="py-3 px-6 text-left">{{.Port}}</td>
+                    <td class="py-3 px-6 text-left">{{.Duration}}</td>
+                    <td class="py-3 px-6 text-left">{{.FloodType}}</td>
+                    <td class="py-3 px-6 text-left">{{.Time}}</td>
+                </tr>
+                {{end}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.27.3/dist/apexcharts.min.js"></script>
+
+    <script>
+        var chartType = 'line';
+
+        function fetchBotStatisticsData() {
+            fetch("/bot-statistics")
+                .then(response => response.json())
+                .then(data => {
+                    updateChart(data);
+                })
+                .catch(error => {
+                    console.error("Failed to fetch bot statistics data:", error);
+                });
+        }
+
+        function updateChart(data) {
+            var botTypes = data.map(d => d.BotType);
+            var chartData = [];
+
+            for (var i = 0; i < botTypes.length; i++) {
+                var botType = botTypes[i];
+                var count = data.find(d => d.BotType === botType)?.Count || 0;
+                chartData.push({ x: botType, y: count });
+            }
+
+            var options = {
+                chart: {
+                    type: chartType,
+                    height: 300,
+                    animations: {
+                        enabled: true,
+                        easing: 'easeinout',
+                        speed: 800,
+                        animateGradually: {
+                            enabled: true,
+                            delay: 150
+                        },
+                        dynamicAnimation: {
+                            enabled: true,
+                            speed: 350
+                        }
+                    }
+                },
+                stroke: {
+                    curve: 'smooth'
+                },
+                xaxis: {
+                    type: 'category'
+                },
+                yaxis: {
+                    min: 0
+                }
+            };
+
+            var chart = new ApexCharts(document.querySelector("#chart"), {
+                series: [{ name: "Bot Count", data: chartData }],
+                options: options
+            });
+
+            chart.render();
+        }
+
+        function changeChartType(type) {
+            chartType = type;
+            fetchBotStatisticsData();
+        }
+
+        fetchBotStatisticsData();
+        setInterval(fetchBotStatisticsData, 5000);
+    </script>
+</div>
+</body>
+</html>

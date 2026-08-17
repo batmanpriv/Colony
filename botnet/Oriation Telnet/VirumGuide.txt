@@ -1,0 +1,101 @@
+-=ADMINISTRATOR/MODERATOR Guide=-
+
+//To send
+
+Loro Net Prices
+Basic Ranks./Monthly
+Price.      Time.      Cooldown     
+£10.          300s.        180s.          
+£20.         700s.      300s.            
+£30.         1100s.      300s.
+£60.         1100s.      10s.
+—————————————-
+Member VIP Ranks./Monthly
+Price.      Time.      Cooldown     
+£60.          3000.       10s.          
+£70.         3000s.        0s.            
+£100.         6000.         0s.
+
+Rank 1/2/3
+
+"0s" Cooldown means unlimited concurrents
+ 
+—————————————-
+Reseller Ranks Ranks./Monthly
+Price.  Time to add/Acc. Cooldown     
+£50.          400s.      Custom.         
+£70.         1000s.      Custom.           
+£80.         1600s.      Custom.
+
+*Time to adde es el tiempo que puedes agregar por cuenta
+—————————————-
+Reseller Rank I: £100 Lifetime 
+Reseller Rank II: £130 Lifetime 
+Reseller Rank III: £140 Lifetime 
+
+Todas las cuentas reseller tienen 599 segundos de ataque y 150 cooldown.
+
+//To send
+
+*Must follow rules and things said here in order to stay being part of the staff team.*
+
+@Moderators
+
+	You guys are responsible for dealing with any issues customers are having by adding the month they payed or adding them to the net if needed. 
+
+	In order to add a new user, depending wether it is a vip user or a normal user, you are going to be relaying on 2 commands in order to do any of those things. 
+		+.ADDBASIC
+			[Adds normal user, don't forget to add cooldown!]
+		+.ADDMEMBER
+			[Adds a vip member with unlimited concurrents if you set 0 cooldown. Theres 3 types of resellers, depending on the seconds you'll add your new customer. 
+			Example: 
+			Member I: 1500 seconds 30 cooldown
+			Member II: 4000 seconds 0 cooldown
+			Member III: 10000 seconds 0 cooldown]
+
+	Once a user is added if it needs to be removed for anything (Justified, example: violating rules) you will have the command
+		+.REMOVEUSER [Removes users, if any reseller asks you to remove one of his customers you need to do it with proofs of why he is being removed]
+	And for last but not least 
+		+.ADDMONTH 
+			[If a user expired and he payed his month again you can add his new mensuality]
+
+@Administrators
+
+	You guys are responsible to manage moderators are acomplishing their work, helping out customers, whitelisting ips, and managing resellers.
+
+	In order to add a new user, depending wether it is a vip user, reseller user or a normal user, you are going to be relaying on 3 commands in order to do any of those things. 
+		+.ADDBASIC
+			[Adds normal user, don't forget to add cooldown!]
+		+.ADDMEMBER
+			[Adds a vip member with unlimited concurrents if you set 0 cooldown. Theres 3 types of resellers, depending on the seconds you'll add your new customer. 
+			Example: 
+			Member I: 1500 seconds 30 cooldown
+			Member II: 4000 seconds 0 cooldown
+			Member III: 10000 seconds 0 cooldown]
+		+.ADDRESELLER
+			[Adds Reseller with different ranks. All ranks below are have the functions said.
+			Example: 
+			Reseller I: Can add user with up to 400 second attacks and custom cooldown.
+			Reseller II: Can add user with up to 1000 second attacks and custom cooldown.
+			Reseller III: Can add user with up to 1600 second attacks and custom cooldown.]
+		
+		Once a user is added if it needs to be removed for anything (Justified, example: violating rules) you will have the command
+			+.REMOVEUSER [Removes users, if any reseller asks you to remove one of his customers you need to do it with proofs of why he is being removed. Also, if a moderator isn't doing his job correctly you are allowed to remove him/her.]
+
+		To set a custom date for customers you have this command.
+			+.REACTIVATE
+				[Will let you set a custom date example "Expiry date 99/99/9999"]
+
+		To whitelist an ip, if someone pays for his ip being whitelisted you've got this command.
+			+.WHITELIST
+				[You will add his ip after typing .whitelist command. You need to change his ip in order that the last digits after the last dot are 0 example 73.73.73.0, then you need to do for the netmask 24{ALWAYS DO FOR NETMASK 24}]
+			if you need help removing an ip let me know @thar3seller
+
+		And for last but not least 
+			+.ADDMONTH 
+			[If a user expired and he payed his month again you can add his new mensuality]
+
+
+
+
+

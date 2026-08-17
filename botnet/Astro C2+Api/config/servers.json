@@ -1,0 +1,35 @@
+{
+
+    "servers": [
+        {
+            "name": "Spoof 1",
+            "enabled": true,
+            "access": {
+                "enabled": false,
+                "allowed_keys": []
+            },
+            "connection": {
+                "host": "5.2.77.248",
+                "port": 22,
+                "user": "root",
+                "password": "lukaiana1",
+                "connection_timeout": 20
+            },
+            "methods": [
+                {
+                    "name": "HOME",
+                    "command": "/usr/bin/whoami",
+                    "max_time": 86400,
+                    "type": "layer4"
+                },
+                {
+                    "name": "HTTPS",
+                    "command": "screen -dm node HTTPS.js [HOST] [TIME]",
+                    "max_time": 180,
+                    "type": "layer7"
+                }
+            ]
+        }
+    ]
+
+}

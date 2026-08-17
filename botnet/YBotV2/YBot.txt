@@ -1,0 +1,11 @@
+YBot Mirai Variant by https://t.me/Ybotnets
+
+- YBot Features:
+    Advanced Malware Killer (Scanning and killing bad proccess every 2s so we dont stress devices cpu)
+    MultiSelfrep Scanner /telnet/asus/android/asus/comtrend/hnap/huawei/zyxel/tr/thinkphp/jaws/gpon80/gpon8080
+    Randomising Process On Executing the bin So We Hard To Kill
+    Telegram Commands/Logins Logs ( No One Will Access Your Net Without You Getting An Alert With His IP And Login Infos )
+    Simple Design No Bl ASCII Art 
+    Admin Commands / Geo Tools / <<100>> - <<sleep(100)>> For Better Designing / Banners System On Login And Attacking 
+    Methods : /handshake/udp/syn/ack/int/vse/socket/tcplegit/socket/
+    In System Logging
