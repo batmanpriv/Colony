@@ -1,4 +1,3 @@
-# 🐜 COLONY
 <h1 align="center">🐜 COLONY</h1>
 
 <p align="center">
