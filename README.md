@@ -1,8 +1,17 @@
 # 🐜 COLONY
+<h1 align="center">🐜 COLONY</h1>
 
-> *"A thriving colony of botnets, DDoS frameworks, payload injectors, and exploitation tools — preserved for education, research, and development."*
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/547119b5-71b4-46a9-be7d-3818ed068c05" alt="Colony Banner" width="100%">
+</p>
 
-**Maintainer:** [@batmanpriv](https://github.com/batmanpriv)
+<p align="center">
+  <strong><em>"A thriving colony of botnets, DDoS frameworks, payload injectors, and exploitation tools — preserved for education, research, and development."</em></strong>
+</p>
+
+<p align="center">
+  <strong>Maintainer:</strong> <a href="https://github.com/batmanpriv">@batmanpriv</a>
+</p>
 
 ---
 
