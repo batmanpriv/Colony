@@ -206,3 +206,46 @@ This repository is a **digital museum** of offensive security tools. Study them.
 ---
 
 **🐜 COLONY** — *Preserving the past to protect the future.*
+
+---
+
+## 💀 **WANT MORE?** 💀
+
+> **Looking for private, custom-built botnets with full C2 panels?**  
+> Whether you need **Command-Line**, **Graphical**, or **Panel-connected** botnets —  
+> **We've got you covered.**
+
+<br>
+
+### 🛠️ **Available Options:**
+
+| Type | Description |
+|------|-------------|
+| **💻 Command-Line Botnets** | Lightweight, fast, scriptable — for advanced users |
+| **🖥️ Graphical C2 Panels** | Full GUI dashboards with real-time monitoring |
+| **📡 Panel-Connected Bots** | Fully integrated with web-based management |
+| **⚡ Custom Development** | Tailor-made botnets for your specific needs |
+
+<br>
+
+### 📲 **Contact:**
+
+<h3>
+  <a href="https://t.me/batmanpriv">
+    <img src="https://img.shields.io/badge/Telegram-@batmanpriv-26A5E4?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram">
+  </a>
+</h3>
+
+**🔒 Secure. Private. Professional.**
+
+</div>
+
+<hr>
+
+<div align="center">
+
+**🐜 COLONY** — *"Preserving the past to protect the future."*
+
+**Maintainer:** [@batmanpriv](https://github.com/batmanpriv)
+
+</div>
